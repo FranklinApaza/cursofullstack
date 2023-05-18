@@ -1,0 +1,63 @@
+<html>
+<head>
+<!-- styles -->
+<style>
+	/*Selectores HTML*/
+	h1 {
+		color: red;
+	}
+	form {
+		border: 1px solid #000;
+		padding: 10px 40px 20px 80px !important;
+		padding-bottom: 0px;
+		margin-top: 20px;
+	}
+
+	/*Selectores de clase*/
+	.btn-enviar{
+		border: 1px solid blue;
+		background-color: blue;
+		color: #fff;
+		padding: 12px;
+		border-radius: 3px;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+	/*Selectores Id*/
+	#mensaje{
+		font-weight: bold;
+		color: green;
+	}
+
+	/**Psedoclases*/
+	.btn-enviar:hover{
+		background-color: green;
+		border: 1px dashed green;
+	}
+</style>
+<!--js-->
+</head>
+<body>
+<!-- contenido -->
+<h1>Hola HTML</h1>
+<button onclick="mostrar()">Mostrar mensaje</button>
+<br/>
+<form action="procesa.php" method="POST">
+	<label for="nombre">Ingrese su nombre</label>
+	<input type="text" name="nombre1" id="nombre" />
+	<button type="submit" class="btn-enviar">Enviar datos</button>
+</form>
+
+<div id="mensaje">
+</div>
+<!--javaScript-->
+<script type="text/javascript">
+	function mostrar() {
+		//DOM: Document Object Model
+		var nombre = document.getElementById('nombre');
+		document.getElementById('mensaje').innerHTML = nombre.value;
+		//alert('Hola!! '+nombre.value);
+	}
+</script>
+</body>
+</html>
