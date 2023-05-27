@@ -1,5 +1,9 @@
+const auth = require('../app/middlewares/auth');
+
 const mainController = require('../app/controllers').main;
 const productoController = require('../app/controllers').producto;
+const ventaController = require('../app/controllers').venta;
+const usuarioController = require('../app/controllers').usuario;
 
 module.exports = (app) => {
 
@@ -21,4 +25,14 @@ module.exports = (app) => {
     app.get('/api/productos/:id', productoController.getProductById);
     app.put('/api/productos/:id', productoController.update);
     app.delete('/api/productos/:id', productoController.delete);
+
+    app.get('/api/ventas/cliente/:id', auth.verificaUsuario, productoController.ventasByClienteId);
+
+    app.get('/api/cuentas', mainController.listCuentas);
+
+    app.post('/api/ventas', ventaController.create);
+
+    app.post('/api/usuarios', usuarioController.create);
+
+    app.post('/api/auth/login', usuarioController.authenticate);
 };
