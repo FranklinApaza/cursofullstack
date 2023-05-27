@@ -1,4 +1,5 @@
 const Producto = require('../models').Producto;
+const sequelize = Producto.sequelize;
 
 module.exports = {
     create(req, res) {
@@ -86,5 +87,20 @@ module.exports = {
                 console.log('error', error);
                 res.status(500).send(error)
             });
-    }
+    },
+
+    ventasByClienteId(req, res) {
+        return sequelize.query('select * from func_compras_cliente(:clienteId)',
+            {
+                replacements: {
+                    clienteId: req.params.id //parámetro GET id
+                },
+                type: sequelize.QueryTypes.SELECT
+            })
+            .then((data) => res.status(200).send(data))
+            .catch((error) => {
+                console.log('error', error);
+                res.status(500).send(error)
+            });
+    },
 };
