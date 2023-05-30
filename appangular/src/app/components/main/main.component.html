@@ -1,0 +1,12 @@
+<p>Clase Angular</p>
+<button class="btn btn-primary" (click)="setVisible()">Show/hide</button>
+<p [hidden]="!visible">Me voy</p>
+<p>{{expresion}}</p>
+<p>{{otraVariable}}</p>
+<input type="text" [(ngModel)]="persona.nombre">
+<p>Hola!! mi nombre es <span class="font-bold">{{persona.nombre}}</span> </p>
+
+<img [src]="imagen">
+<div [ngClass]="classes">[ngClass] binding a la propiedad class</div>
+
+<app-hijo></app-hijo>
