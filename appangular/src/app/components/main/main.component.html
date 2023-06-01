@@ -8,5 +8,23 @@
 
 <img [src]="imagen">
 <div [ngClass]="classes">[ngClass] binding a la propiedad class</div>
+<!--Pipes-->
+<p>{{fechaHoy | date:'dd/MM/yyyy hh:mm:ss'}}</p>
+<p>{{montoTotal | currency:'Bs. ' }}</p>
+<p>{{montoTotal | number:'1.1-2':'es'}}</p>
+<p>Reverso: {{texto | reverse:'Categoria'}}</p>
 
+<!--Directivas-->
+<div *ngIf="valorBool">{{texto}}</div>
+<ul>
+    <li *ngFor="let item of productos">{{item.nombre}} - {{item.precio| currency:'Bs. '}}</li>
+</ul>
+<span [ngSwitch]="operacion">
+    <span *ngSwitchCase="'sumar'">{{valor1+valor2}}</span>
+    <span *ngSwitchCase="'restar'">{{valor1-valor2}}</span>
+    <span *ngSwitchCase="'multiplicar'">{{valor1*valor2}}</span>
+    <span *ngSwitchCase="'dividir'">{{valor1/valor2}}</span>
+    <span *ngSwitchDefault>(No eligió operación)</span>
+</span>
+<p *appRepetir="2">Repetir este párrafo</p>
 <app-hijo></app-hijo>
