@@ -1,17 +1,23 @@
 <h2>Lista de Productos</h2>
+<p><button (click)="nuevoProducto()" class="btn btn-primary">Crear nuevo producto</button></p>
 <table class="table table-striped">
     <tr>
         <th>Nombre del producto</th>
         <th>Precio</th>
         <th>Cantidad</th>
         <th>Categoría</th>
+        <th></th>
     </tr>
     <tbody>
         <tr *ngFor="let item of productos">
-            <td>{{item.nombre}}</td>
+            <td (click)="verDetalle(item.id)" class="pointer">{{item.nombre}}</td>
             <td>{{item.precio| currency:'Bs. '}}</td>
             <td>{{item.cantidad}}</td>
             <td>{{item.categoria}}</td>
+            <td>
+                <button (click)="verEditarProducto(item.id)" class="btn btn-sm btn-primary">Editar</button>
+                <button (click)="eliminarProducto(item.id, item.nombre)" class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
         </tr>
     </tbody>
 </table>

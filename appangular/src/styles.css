@@ -5,3 +5,11 @@
 .resaltado {
     background-color: yellow;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    text-decoration: underline;
+}

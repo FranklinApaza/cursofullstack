@@ -1,2 +1,39 @@
-<p>detalle works!</p>
-{{producto.nombre}}
+<h2>Detalle del producto {{producto.nombre}}</h2>
+<p><a [routerLink]="['/producto/list']">Regresar</a></p>
+<p></p>
+<table>
+    <tr>
+        <td class="font-bold">Nombre del producto:</td>
+        <td>
+            <span *ngIf="edit=='false'"> {{producto.nombre}}</span>
+            <input type="text" *ngIf="edit=='true'" [(ngModel)]="producto.nombre">
+        </td>
+    </tr>
+    <tr>
+        <td class="font-bold">Precio:</td>
+        <td>
+            <span *ngIf="edit=='false'"> {{producto.precio}}</span>
+            <input type="text" *ngIf="edit=='true'" [(ngModel)]="producto.precio">
+        </td>
+    </tr>
+    <tr>
+        <td class="font-bold">Cantidad:</td>
+        <td>
+            <span *ngIf="edit=='false'"> {{producto.cantidad}}</span>
+            <input type="text" *ngIf="edit=='true'" [(ngModel)]="producto.cantidad">
+        </td>
+    </tr>
+    <tr>
+        <td class="font-bold">Categoría:</td>
+        <td>
+            <span *ngIf="edit=='false'">{{producto.categoria}} </span>
+            <input type="text" *ngIf="edit=='true'" [(ngModel)]="producto.categoria">
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button (click)="guardar()" *ngIf="edit=='true'" class="btn btn-success">{{btnText}}</button>
+        </td>
+    </tr>
+</table>

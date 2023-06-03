@@ -11,6 +11,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { RepetirDirective } from './directives/repetir.directive';
 import { ListComponent } from './components/producto/list/list.component';
 import { DetalleComponent } from './components/producto/detalle/detalle.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DetalleComponent } from './components/producto/detalle/detalle.componen
     ReversePipe,
     RepetirDirective,
     ListComponent,
-    DetalleComponent
+    DetalleComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
