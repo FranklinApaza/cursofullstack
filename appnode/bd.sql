@@ -27,6 +27,7 @@ CREATE TABLE venta_detalle (
    producto_id integer NOT NULL,
    venta_id integer NOT NULL,
    precio numeric(10, 2) NOT NULL DEFAULT 0,
+   cantidad integer NOT NULL DEFAULT 0,
 	CONSTRAINT FK_venta_detalle_producto FOREIGN KEY(producto_id)
         REFERENCES producto(id),
 	CONSTRAINT FK_venta_detalle_venta FOREIGN KEY(venta_id)
